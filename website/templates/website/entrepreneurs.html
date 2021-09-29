@@ -1,0 +1,27 @@
+{% extends "website/baselayout.html" %}
+{% block content %}
+
+<form class="entform" action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h4>Name</h4>{{form.ent_full_name}}
+    </br>
+    <h4>Email</h4>{{form.ent_email}}
+    </br>
+    <h4>Ph. Number</h4>{{form.ent_number}}
+    </br>
+    <h4>Area of Operation</h4>{{form.ent_area}}
+    </br>
+    <h4>Pincode</h4>{{form.ent_pincode}}
+    </br>
+    <h4>Address</h4>{{form.ent_address}}
+    </br>
+    <h4>Aadhar No.</h4>{{form.ent_aadhar}}
+    </br>
+    <h4>Profile Photo</h4>{{form.ent_photo}}
+    </br>
+    <h4>Address Proof</h4>{{form.ent_address_proof}}
+
+
+    <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+{% endblock content %}

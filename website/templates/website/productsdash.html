@@ -1,0 +1,79 @@
+{% extends "website/baselayout.html" %}
+{% block content %}
+<style>
+    .parent {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+    }
+
+    .card {
+
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        width: 30%;
+        border-radius: 5px;
+        margin: 30px;
+        text-align: center;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    img {
+        border-radius: 5px 5px 0 0;
+    }
+
+
+
+    a {
+        text-decoration: none;
+        font-size: larger;
+    }
+
+    .button {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        border-radius: 10px;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s;
+        /* Safari */
+        transition-duration: 0.4s;
+    }
+
+    .button1 {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .button2:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+</style>
+<div class="parent">
+    <a href="{% url 'addproduct'  %}"><button class="button button2">Add Product</button></a>
+    {% for prod in prodlist %}
+    <div class="card">
+        <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201909/agri_tech.jpeg?tO3o7WWloZ63zJI6O7hdiLIhTCrHxZvL&size=770:433"
+            alt="Avatar" style="width:100%; height:auto;">
+        <h3>Product Name:- {{prod.product_name}}</h3>
+        <h3>Price:- Rs.{{prod.product_price}}</h3>
+        <h3>Company Name:- {{prod.company}}</h3>
+        <a href="{% url 'productdash'  prod.id %}"> <button class="button button2">View Product</button></a>
+    </div>
+
+    </br>
+    {% endfor %}
+</div>
+
+
+{% endblock content %}

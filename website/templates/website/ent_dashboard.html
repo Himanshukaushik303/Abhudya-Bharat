@@ -1,0 +1,73 @@
+{% extends "website/baselayout.html" %}
+{% block content %}
+<style>
+    a {
+        text-decoration: none;
+        font-size: larger;
+    }
+
+    .alert {
+        margin-left: 50px;
+        font-size: larger;
+        font-weight: bold;
+
+
+    }
+
+    .button {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        border-radius: 10px;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s;
+        /* Safari */
+        transition-duration: 0.4s;
+    }
+
+    .button1:hover {
+        box-shadow: 0 12px 16px 0 rgba(56, 56, 56, 0.747), 0 17px 50px 0 rgba(34, 33, 33, 0.774);
+        background-color: #ca1919;
+    }
+
+    .button2:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+</style>
+
+<div class="alert">
+    <h4>Name :- {{ent.ent_full_name}}
+    </h4>
+    <h4>Email :- {{ent.ent_email}}
+    </h4>
+    <h4>Ph. Number :- {{ent.ent_number}}
+    </h4>
+    <h4>Area of Operation :- {{ent.ent_area}}
+    </h4>
+    <h4>Pincode :- {{ent.ent_pincode}}
+    </h4>
+    <h4>Address :- {{ent.ent_address}}
+    </h4>
+    <h4>Aadhar No. :- {{ent.ent_aadhar}}
+    </h4>
+
+    <img src="{{ent.ent_photo.url}}" width="200" height="200" alt="post img">
+
+    </h4>
+
+    <a href="{{ent.ent_address_proof.url}}" target="blank" title="address_proof"><button class="button button2">View
+            Address Proof</button></a>
+    </br>
+    <a href="{% url 'edit_ent' %}"><button class="button button2">Edit Details</button></a>
+
+</div>
+
+
+{% endblock content %}

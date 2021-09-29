@@ -1,0 +1,32 @@
+{% extends "website/baselayout.html" %}
+{% block content %}
+
+<form class="entform" action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h4>Name</h4>{{form.bp_full_name}}
+    </br>
+    <h4>Designation</h4> {{form.bp_designation}}
+    </br>
+    <h4>Email</h4>{{form.bp_email}}
+    </br>
+    <h4>Ph. Number</h4> {{form.bp_number}}
+    </br>
+    <h4>Company Name</h4>{{form.company_name}}
+    </br>
+    <h4>Company Address</h4>{{form.company_address}}
+    </br>
+    <h4>Communication Address</h4>{{form.communication_address}}
+    </br>
+    <h4>Incorporation Year</h4>{{form.incorporation_year}}
+    </br>
+    <h4>Founder Name</h4> {{form.founder_full_name}}
+    </br>
+    <h4>Founder Email</h4>{{form.founder_email}}
+    </br>
+    <h4>Founder Number</h4>{{form.founder_number}}
+
+
+
+    <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+{% endblock content %}

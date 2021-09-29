@@ -1,0 +1,67 @@
+{% extends "website/baselayout.html" %}
+{% block content %}
+<style>
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        background-image: url(https://akm-img-a-in.tosshub.com/indiatoday/images/story/201909/agri_tech.jpeg?tO3o7WWloZ63zJI6O7hdiLIhTCrHxZvL&size=770:433);
+        opacity: 50%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+
+    .entform {
+        font-size: x-large;
+        font-weight: bold;
+        text-shadow: 5px 5px 5px rgb(117, 255, 248);
+    }
+
+    button {
+        background-color: #fd0b0b;
+        /* Green */
+        border: 20px;
+        border-radius: 10px;
+        color: rgb(255, 255, 255);
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s;
+        /* Safari */
+        transition-duration: 0.4s;
+    }
+
+
+
+    .button2:hover {
+        box-shadow: 0 12px 16px 0 rgba(48, 255, 6, 0.61), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        border: 20px;
+    }
+</style>
+
+<form class="entform" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{prodform.as_p}}
+
+    {{imageset.management_form}}
+    {% for form in imageset %}
+    {{form.as_p}}
+    {% endfor %}
+
+    {{faqset.management_form}}
+    {% for form in faqset %}
+    {{form.as_p}}
+    {% endfor %}
+    <button type="submit" class="button button2">Add
+        Product</button>
+</form>
+{% endblock content %}

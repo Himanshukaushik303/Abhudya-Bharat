@@ -1,0 +1,74 @@
+{% extends "website/baselayout.html" %}
+{% block content %}
+<style>
+    a {
+        text-decoration: none;
+        font-size: larger;
+    }
+
+    .button {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        border-radius: 10px;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s;
+        /* Safari */
+        transition-duration: 0.4s;
+    }
+
+    .alert {
+        margin-left: 50px;
+        font-size: larger;
+        font-weight: bold;
+
+
+    }
+
+    .button1:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19)
+    }
+
+    .button2:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+</style>
+<div class="alert ">
+
+
+    <h4>Name :- {{bp.bp_full_name}}
+    </h4>
+    <h4>Designation :- {{bp.bp_designation}}
+    </h4>
+    <h4>Company Name :- {{bp.company_name}}
+    </h4>
+    <h4>Email :- {{bp.bp_email}}
+    </h4>
+    <h4>Ph. Number :- {{bp.bp_number}}
+    </h4>
+    <h4>Company Address :- {{bp.company_address}}
+    </h4>
+    <h4>Communication Address :- {{bp.communication_address}}
+    </h4>
+    <h4>Incorporation Year :- {{bp.incorporation_year}}
+
+    </h4>
+
+    <h4>Founder Name :- {{bp.founder_full_name}}
+    </h4>
+    <h4>Founder Email :- {{bp.founder_email}}
+    </h4>
+    <h4>Founder Number :- {{bp.founder_number}}</h4>
+</div>
+
+<a class="accept-reject" href="{% url 'accept_bp' bp.id %}"><button class="button button2">Accept</button></a>
+<a class="accept-reject" href="{% url 'reject_bp' bp.id %}"><button class="button button1">Reject</button></a>
+
+{% endblock content %}

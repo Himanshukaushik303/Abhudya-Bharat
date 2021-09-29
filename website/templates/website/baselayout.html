@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .navbar {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            text-align: center;
+            height: 80px;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 6px;
+            text-decoration: none;
+            font-size: 17px;
+
+        }
+
+        .navbar a:hover {
+            background: #ddd;
+            color: black;
+        }
+
+        .main {
+            padding: 16px;
+            margin-top: 80px;
+            height: 1500px;
+            /* Used in this example to enable scrolling */
+        }
+
+        .dropbtn {
+            color: white;
+            background-color: #333;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: rgb(255, 255, 255);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="{% url 'homepage' %}">Home</a>
+        <a href="{% url 'services' %}">Services</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="#contact">Contact</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Log Out</a>
+        <div class="dropdown ">
+            <button class="dropbtn ">Register</button>
+            <div class="dropdown-content">
+                <a href="{% url 'entrepreneurs' %}">Entrepreneur</a>
+                <a href="{% url 'partners' %}">Bussiness Partner</a>
+            </div>
+        </div>
+        {% else %}
+        <a href="{% url 'login' %}">Log In</a>
+        <a href="{% url 'register' %}">Sign Up</a>
+
+        {% endif %}
+
+    </div>
+
+    <div class="main">
+        {% block content %}
+
+
+
+
+
+        {% endblock %}
+    </div>
+
+</body>
+
+</html>
